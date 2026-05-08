@@ -1,0 +1,13 @@
+<div class="sidebar">
+    <div class="sidebar__logo">
+        TaskFlow
+    </div>
+
+    <nav class="sidebar__nav">
+        @for (item of navItems; track item.label) {
+        <a [routerLink]="item.route" routerLinkActive="active">
+            <span>{{item.label}}</span>
+        </a>
+        }
+    </nav>
+</div>
