@@ -14,6 +14,6 @@ interface NavItem {
 })
 export class Sidebar {
   navItems: NavItem[] = [
-    { label: 'Dashboard', route: '/login' }
+    { label: 'Dashboard', route: '/dashboard' }
   ];
 }
