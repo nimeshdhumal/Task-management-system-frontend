@@ -1,1 +1,12 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+    <div class="dashboard__header">
+        <h1>Dashboard</h1>
+        <p>Welcome back</p>
+    </div>
+
+    <div class="dashboard__stats">
+        @for (item of stats; track item.title) {
+        <app-stat-card [cardTitle]=item.title [cardCount]=item.count></app-stat-card>
+        }
+    </div>
+</div>

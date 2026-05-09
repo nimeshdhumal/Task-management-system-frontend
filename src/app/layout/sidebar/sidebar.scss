@@ -38,3 +38,25 @@
     background: #2563eb;
     color: #ffffff;
 }
+
+.sidebar__logout {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.sidebar__logout button {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: none;
+    border-radius: 10px;
+    background: #dc2626;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sidebar__logout button:hover {
+    background: #b91c1c;
+}

@@ -1,0 +1,13 @@
+.shell {
+    display: flex;
+    height: 100vh;
+}
+
+.shell__sidebar {
+    flex-shrink: 0;
+}
+
+.shell__content {
+    flex: 1;
+    overflow: hidden;
+}

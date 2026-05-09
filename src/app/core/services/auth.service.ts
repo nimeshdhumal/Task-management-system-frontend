@@ -5,17 +5,15 @@ import { Injectable } from "@angular/core";
 })
 
 export class AuthService {
-    private logged: boolean = false;
-
     login() {
-        this.logged = true;
+        localStorage.setItem('logged', 'true');
     }
 
     logout() {
-        this.logged = false;
+        localStorage.removeItem('logged');
     }
 
     isUserLoggedIn() {
-        return this.logged;
+        return localStorage.getItem('logged') === 'true';
     }
 }
