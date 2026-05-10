@@ -1,1 +1,20 @@
-<p>task-list works!</p>
+<div class="task-list">
+    <div class="task-list__header">
+        <div>
+            <h1>Tasks</h1>
+            <p>Manage your project tasks</p>
+        </div>
+        <button>
+            Add Task
+        </button>
+    </div>
+
+    <div class="task-list__content">
+        @for (item of tasks; track item.title) {
+        <app-task-card [title]=item.title [description]=item.description [status]=item.status [priority]=item.priority
+            [dueDate]=item.dueDate> </app-task-card>
+        }
+    </div>
+
+    <app-task-form />
+</div>

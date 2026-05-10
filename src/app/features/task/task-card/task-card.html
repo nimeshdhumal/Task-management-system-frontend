@@ -1,1 +1,24 @@
-<p>task-card works!</p>
+<div class="task-card">
+    <div class="task-card__top">
+        <span class="task-status">
+            {{status}}
+        </span>
+    </div>
+
+    <h3 class="task-title">
+        {{title}}
+    </h3>
+
+    <p class="task-description">
+        {{description}}
+    </p>
+
+    <div class="task-card__footer">
+        <span>
+            {{dueDate | date}}
+        </span>
+        <span>
+            {{priority}}
+        </span>
+    </div>
+</div>

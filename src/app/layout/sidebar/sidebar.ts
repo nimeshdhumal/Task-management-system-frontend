@@ -16,7 +16,8 @@ export class Sidebar {
   router = inject(Router);
 
   navItems: NavItem[] = [
-    { label: 'Dashboard', route: '/dashboard' }
+    { label: 'Dashboard', route: '/dashboard' },
+    { label: 'Tasks', route: '/tasks' }
   ];
 
   handleLogout() {
