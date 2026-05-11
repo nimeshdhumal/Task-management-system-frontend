@@ -18,6 +18,7 @@ export class TaskForm {
 
   onSubmit() {
     if (this.taskForm.invalid) {
+      this.taskForm.markAllAsTouched();
       return;
     } else {
       console.log(this.taskForm.value);
