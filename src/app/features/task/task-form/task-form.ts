@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-task-form',
   standalone: true,
@@ -9,14 +9,18 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class TaskForm {
   taskForm = new FormGroup({
-    title: new FormControl(''),
-    description: new FormControl(''),
-    status: new FormControl(''),
-    priority: new FormControl(''),
-    dueDate: new FormControl('')
+    title: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    status: new FormControl('', [Validators.required]),
+    priority: new FormControl('', [Validators.required]),
+    dueDate: new FormControl('', [Validators.required])
   });
 
-  onSubmit(){
-    console.log(this.taskForm.value);
+  onSubmit() {
+    if (this.taskForm.invalid) {
+      return;
+    } else {
+      console.log(this.taskForm.value);
+    }
   }
 }
