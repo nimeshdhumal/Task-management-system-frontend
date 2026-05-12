@@ -31,4 +31,9 @@ export class TaskList {
       status: 'Blocked', priority: 'High', dueDate: new Date('2026-05-15')
     }
   ];
+
+  /* This function adding the Task-Form data into the Array */
+  addTaskList(newTask: Tasks) {
+    this.tasks.push(newTask);// adding the form data into the array list...
+  }
 }
