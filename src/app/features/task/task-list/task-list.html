@@ -4,7 +4,7 @@
       <h1>Tasks</h1>
       <p>Manage your project tasks</p>
     </div>
-    <button>Add Task</button>
+    <button (click)="navigateToCreateTask()">Add Task</button>
   </div>
 
   <div class="task-list__content">
@@ -20,6 +20,4 @@
       </app-task-card>
     }
   </div>
-  <app-task-form (saveTaskForm)="addTaskList($event)" />
-  <!-- @Output() Receving the Task-Form(child component) data tranfer -> to the (parent component)Task-List -->
 </div>
