@@ -1,5 +1,54 @@
 <div class="login">
-    <button (click)="handleLogin()">
-        Login
-    </button>
+    <div class="login__card">
+        <div class="login__header">
+            <h1>Welcome Back</h1>
+            <p>Login to continue managing your tasks</p>
+        </div>
+        <form class="login__form" [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+            <div class="login__group">
+                <label>Email</label>
+                <input type="email" formControlName="email" placeholder="Enter your email" />
+                <!-- Validation defined -->
+                @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+                <div class="error">
+                    <!-- Specific check 1: Was it left empty? -->
+                    @if(loginForm.get('email')?.errors?.['required']){
+                    <span>Email address is required.</span>
+                    }
+
+                    <!-- Specific check 2: Is it a bad format? -->
+                    @if (loginForm.get('email')?.errors?.['email']) {
+                    <span>Please enter a valid email format.</span>
+                    }
+                </div>
+                }
+            </div>
+            <div class="login__group">
+                <label>Password</label>
+                <input type="password" formControlName="password" placeholder="Enter your password" />
+                <!-- Validation defined -->
+                @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+                <div class="error">
+                    <!-- Specific check 1: Was it left empty? -->
+                    @if (loginForm.get('password')?.errors?.['required']) {
+                    <span>Password is required.</span>
+                    }
+                    <!-- Specific check 2: Is it too short? -->
+                    @if (loginForm.get('password')?.errors?.['minlength']) {
+                    <span>Password must be at least 6 characters long.</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <!-- फॉर्म के अंदर या बटन के ठीक ऊपर इस @if ब्लॉक को रखें -->
+            @if (errorMessage) {
+            <div class="login__error-alert">
+                <span class="login__error-icon">⚠️</span>
+                <p class="login__error-text">{{ errorMessage }}</p>
+            </div>
+            }
+            <button type="submit">Login</button>
+        </form>
+    </div>
 </div>

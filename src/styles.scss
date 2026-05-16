@@ -25,3 +25,51 @@ input,
 textarea {
     font: inherit;
 }
+
+/* Global Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e5e7eb;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}
+
+/* Better Selection Color */
+::selection {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+/* Smooth Rendering */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better Button UX */
+button {
+    transition: all 0.2s ease;
+}
+
+/* Better Input Focus */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #2563eb;
+    outline: none;
+}
+
+/* Prevent Image Overflow */
+img {
+    max-width: 100%;
+    display: block;
+}
