@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Task } from '../models/task.model';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../assets/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -9,7 +9,12 @@ export class TaskService {
   http = inject(HttpClient);
 
   getTask() {
-    return this.http.get(`${environment.apiBaseUrl}/todos`);
+    const token = localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.get(`${environment.apiBaseUrl}/tasks?page=1&limit=10&sort=createdAt&order=desc`, { headers });
   }
 
   tasks: Task[] = [

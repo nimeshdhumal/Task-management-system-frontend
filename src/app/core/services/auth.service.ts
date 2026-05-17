@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { LoginCredentials, LoginResponse } from "../models/auth.model";
-import { environment } from "../../../environments/environment";
 import { Observable } from "rxjs";
+import { environment } from "../../../assets/environments/environment";
 @Injectable({
     providedIn: 'root'
 })
@@ -14,9 +14,9 @@ export class AuthService {
         return this.httpClient.post<LoginResponse>(`${environment.apiBaseUrl}/auth/login`, credentials);
     }
     logout() {
-        localStorage.removeItem('logged');
+        localStorage.removeItem('token');
     }
     isUserLoggedIn() {
-        return localStorage.getItem('logged') === 'true';
+        return !!localStorage.getItem('token');
     }
 }
