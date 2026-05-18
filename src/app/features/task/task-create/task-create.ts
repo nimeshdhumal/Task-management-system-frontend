@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { TaskForm } from '../task-form/task-form';
 import { TaskService } from '../../../core/services/task.service';
 import { Router } from '@angular/router';
-import { Task } from '../../../core/models/task.model';
+import { Task, TaskResponse } from '../../../core/models/task.model';
 
 @Component({
   selector: 'app-task-create',
@@ -11,12 +11,18 @@ import { Task } from '../../../core/models/task.model';
   styleUrl: './task-create.scss',
 })
 export class TaskCreate {
-
   router = inject(Router);
   taskService = inject(TaskService);
 
-  addTaskList(newTask: Task) {
-    this.taskService.addTask(newTask);
-    this.router.navigate(['/tasks']);
+  createTask(newTask: Task) {
+    console.log(newTask);
+    this.taskService.createTask(newTask).subscribe({
+      next: (response: TaskResponse) => {
+        this.router.navigate(['/tasks']);
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
   }
 }

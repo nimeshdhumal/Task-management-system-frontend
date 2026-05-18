@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Task } from '../models/task.model';
+import { Task, TaskResponse } from '../models/task.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../assets/environments/environment';
 @Injectable({
@@ -15,6 +15,14 @@ export class TaskService {
       Authorization: `Bearer ${token}`
     });
     return this.http.get(`${environment.apiBaseUrl}/tasks?page=1&limit=10&sort=createdAt&order=desc`, { headers });
+  }
+
+  createTask(saveTaskForm: Task) {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.post<TaskResponse>(`${environment.apiBaseUrl}/tasks`, saveTaskForm, { headers });
   }
 
   tasks: Task[] = [

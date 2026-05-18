@@ -5,3 +5,17 @@ export interface Task {
     priority: string;
     dueDate: Date;
 }
+
+export interface TaskResponseData {
+    id: number;
+    title: string;
+    description: string;
+    status: string;
+    createdAt: string;
+    updatedAt: string;
+}
+export interface TaskResponse {
+    success: boolean;
+    message: string;
+    data: TaskResponseData;
+}

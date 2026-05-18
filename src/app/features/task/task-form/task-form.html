@@ -4,7 +4,7 @@
     <input type="text" formControlName="title" />
     <!-- Validation defined -->
     @if (taskForm.get('title')?.invalid && taskForm.get('title')?.touched) {
-      <div class="error">Title is required.</div>
+    <div class="error">Title is required.</div>
     }
   </div>
 
@@ -13,7 +13,7 @@
     <textarea rows="5" formControlName="description"></textarea>
     <!-- Validation defined -->
     @if (taskForm.get('description')?.invalid && taskForm.get('description')?.touched) {
-      <div class="error">Description is required.</div>
+    <div class="error">Description is required.</div>
     }
   </div>
 
@@ -21,13 +21,13 @@
     <div class="task-form__group">
       <label>Status</label>
       <select formControlName="status">
-        <option>Todo</option>
-        <option>In Progress</option>
-        <option>Completed</option>
+        <option value="todo">Todo</option>
+        <option value="in-progress">In Progress</option>
+        <option value="done">Done</option>
       </select>
       <!-- Validation defined -->
       @if (taskForm.get('status')?.invalid && taskForm.get('status')?.touched) {
-        <div class="error">Status is required.</div>
+      <div class="error">Status is required.</div>
       }
     </div>
 
@@ -35,13 +35,13 @@
       <label>Priority</label>
 
       <select formControlName="priority">
-        <option>Low</option>
-        <option>Medium</option>
-        <option>High</option>
+        <option>low</option>
+        <option>medium</option>
+        <option>high</option>
       </select>
       <!-- Validation defined -->
       @if (taskForm.get('priority')?.invalid && taskForm.get('priority')?.touched) {
-        <div class="error">Priority is required.</div>
+      <div class="error">Priority is required.</div>
       }
     </div>
   </div>
@@ -51,7 +51,7 @@
     <input type="date" formControlName="dueDate" />
     <!-- Validation defined -->
     @if (taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched) {
-      <div class="error">Due Date is required.</div>
+    <div class="error">Due Date is required.</div>
     }
   </div>
 

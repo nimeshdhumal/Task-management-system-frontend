@@ -31,9 +31,9 @@ export class TaskForm {
       const newTask = {
         title: this.taskForm.value.title,
         description: this.taskForm.value.description,
-        status: this.taskForm.value.status,
-        priority: this.taskForm.value.priority,
-        dueDate: this.taskForm.value.dueDate
+        status: this.taskForm.value.status
+        // priority: this.taskForm.value.priority,
+        // dueDate: this.taskForm.value.dueDate
       }
       this.saveTaskForm.emit(newTask);// Sending the Form data from child(Task-Form) to parent(Task-List)
       this.taskForm.reset();// After the form submission reset the values of fields.
